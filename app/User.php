@@ -2,10 +2,10 @@
 
 namespace App;
 
+use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends \Yakuzan\Boiler\Entities\User
 {
     use Notifiable;
 
@@ -26,4 +26,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $access_rules = [
+        'name'     => 'required|max:255',
+        'email'    => 'required|email|unique:users|max:255',
+        'password' => 'required|max:255',
+    ];
+
+    public function modify_rules(Request $request): array
+    {
+        return [
+            'name'     => 'required|max:255',
+            'email'    => 'required|email|unique:users,email,'.$request->user.'|max:255',
+            'password' => 'required|max:255',
+        ];
+    }
 }

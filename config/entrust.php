@@ -32,7 +32,7 @@ return [
     | Update the User if it is in a different namespace.
     |
     */
-    'user' => 'App\User',
+    'user' => \App\User::class,
 
     /*
     |--------------------------------------------------------------------------

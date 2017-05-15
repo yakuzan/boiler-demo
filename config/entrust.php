@@ -1,13 +1,5 @@
 <?php
 
-/**
- * This file is part of Entrust,
- * a role & permission management solution for Laravel.
- *
- * @license MIT
- * @package Zizaco\Entrust
- */
-
 return [
 
     /*
@@ -19,7 +11,7 @@ return [
     | the role if it is in a different namespace.
     |
     */
-    'role' => 'App\Role',
+    'role' => \Yakuzan\Boiler\Entities\Role::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -62,7 +54,7 @@ return [
     | Update the permission if it is in a different namespace.
     |
     */
-    'permission' => 'App\Permission',
+    'permission' => \Yakuzan\Boiler\Entities\Permission::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -96,6 +88,5 @@ return [
     |
     */
     'role_user_table' => 'role_user',
-
 
 ];
